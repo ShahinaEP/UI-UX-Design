@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MySearchDelegate extends SearchDelegate {
+  // BorderRadius
+
   List<String> data = [
     "android",
     "windows",
@@ -14,6 +16,43 @@ class MySearchDelegate extends SearchDelegate {
     "Windows",
     "Mac",
   ];
+  // @override
+  // ThemeData appBarTheme(BuildContext context) {
+  //   return ThemeData(
+  //     // primaryColor: Colors.greenAccent,
+  //     dialogBackgroundColor: Colors.grey,
+  //   );
+  // }
+  
+  @override
+  ThemeData appBarTheme(BuildContext context) {
+    return ThemeData(
+      textTheme: const TextTheme(
+
+        // Use this to change the query's text style
+        headline6: TextStyle(fontSize: 24.0, color: Colors.black),
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.white,
+      ),
+      inputDecorationTheme:const InputDecorationTheme(
+        border: InputBorder.none,
+        fillColor: Color(0xffdee2e6),
+        filled: true,
+
+        // Use this change the placeholder's text style
+        hintStyle: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600, color: Colors.grey),
+      ),
+    );
+  }
+ 
+
+
+  MySearchDelegate() : super(
+    searchFieldLabel: "Search Product",
+    keyboardType: TextInputType.text,
+    textInputAction: TextInputAction.search,
+  );
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
@@ -21,7 +60,7 @@ class MySearchDelegate extends SearchDelegate {
           onPressed: () {
             query = '';
           },
-          icon: const Icon(Icons.clear))
+          icon: const Icon(Icons.clear, color: Colors.cyan, size: 25,))
     ];
   }
 
@@ -31,7 +70,7 @@ class MySearchDelegate extends SearchDelegate {
         onPressed: () {
           close(context, null);
         },
-        icon: const Icon(Icons.arrow_back));
+        icon: const Icon(Icons.arrow_back, color: Colors.cyan, size: 25,));
   }
 
   @override
