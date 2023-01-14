@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uiorus/const-class/const-value.dart';
+import 'package:uiorus/custom-widget/search-widget/list-card-widget/list_card_widget.dart';
+import 'package:uiorus/custom-widget/search-widget/search_widget.dart';
 import 'package:uiorus/pages/home/search.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -21,91 +23,56 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List savedInventory = [
+    {
+      'image':'images/car1.png',
+      'carModel': '2020 Genesis G70',
+      'subTitle': '3.3T',
+      'price':'47,370'
+    },
+    {
+      'image':'images/car2.png',
+      'carModel': '2019 Ford Edge',
+      'subTitle': 'Titanium',
+      'price':'48,370'
+    },
+    {
+      'image':'images/car1.png',
+      'carModel': 'BMW 3 Series for Sale Near 91204',
+      'subTitle': '330i, Sedan',
+      'price':'67,309'
+    },
+    {
+      'image':'images/car2.png',
+      'carModel': 'Mazda 3 for Sale Near 91204',
+      'subTitle': 'Deep Crystal Blue Mica, Sedan',
+      'price':'57,370'
+    },
+    {
+      'image':'images/car1.png',
+      'carModel': '2020 Genesis G70',
+      'subTitle': '3.3T',
+      'price':'47,370'
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+// print(savedInventory);
     return SafeArea(
-    // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: size.width*0.6,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(10)
-                    // shape:BoxShape.circle
-                  ),
-                  child:  TextField(
-                    onTap: (){
-                      showSearch(context: context,delegate: MySearchDelegate(),);
-                    },
-                    readOnly: true,
-                   decoration: InputDecoration(
-                     prefixIcon:Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                       children:const [
-                         Text('Search Products',
-                           style: TextStyle(
-                             fontSize: 19,
-                             fontWeight: FontWeight.bold,
-                             color: Colors.grey
-                           ),
-                         ),
-                         Icon(
-                           Icons.search,
-                           size: 26,
-                           color: Colors.grey,
-                         ),
-                       ],
-                     ),
-                     // icon: Icon(Icons.search),
-                     enabledBorder: InputBorder.none,
-                     focusedBorder: InputBorder.none,
-                   ),
+          search_widget(size, context),
+          listOfCard('Saved Inventory',Constants().color1 , Constants().iconColors),
+          const SizedBox(height: 20,),
+          listOfCard('Saved Searches',Constants().color2, Constants().iconColors2 ),
 
-                  ),
-                ),
-
-                Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(Icons.notifications_active ,size: 30,),
-                    ),
-                    Positioned(
-                      right: 0,
-                      top: -3,
-                      child: Container(
-                        width: 20,
-                        height: 20,
-                        decoration: BoxDecoration(
-                          color: Colors.cyan.withOpacity(1),
-                          shape: BoxShape.circle,
-                        ),
-                        child:const Center(child:  Text('2', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),))
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-          )
         ],
       ),
     );
   }
-}
 
+
+}
