@@ -6,5 +6,6 @@ class Constants{
   Color color2 = Colors.blueGrey.withOpacity(0.3);
   Color iconColors = Colors.orange;
   Color iconColors2 = Colors.deepOrange;
-
+  TextStyle optionStyle = const
+  TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uiorus/navbar/bottom_nav.dart';
 import 'package:uiorus/pages/home/homepage.dart';
 
 void main() {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         // primarySwatch: Colors,
       ),
-      home: Scaffold(body: const MyHomePage(title: 'Flutter Demo Home Page')),
+      home: Scaffold(body: const BottomNavPage()),
     );
   }
 }
