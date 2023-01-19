@@ -172,7 +172,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
 
-                  //Login Section
+                  //Sign up Section
                   CustomButtom(
                     btnName: 'Sign Up',
                     bgColor:Constants().primaryValueColor,
