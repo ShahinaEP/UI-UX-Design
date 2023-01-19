@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uiorus/auth/Login/login.dart';
 import 'package:uiorus/navbar/bottom_nav.dart';
 import 'package:uiorus/pages/home/homepage.dart';
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         // primarySwatch: Colors,
       ),
-      home: Scaffold(body: const BottomNavPage()),
+      home: Scaffold(body: const LoginPage()),
     );
   }
 }
