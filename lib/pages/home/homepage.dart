@@ -12,9 +12,9 @@ import 'package:uiorus/pages/home/search.dart';
 import '../../custom-widget/list-card-widget/list_card_widget.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key});
 
-  final String title;
+  // final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

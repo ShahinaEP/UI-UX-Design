@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:uiorus/const-class/const-value.dart';
 import 'package:uiorus/pages/home/homepage.dart';
+import 'package:uiorus/pages/profile/profile.dart';
 
 class BottomNavPage extends StatefulWidget {
   const BottomNavPage({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
   int _selectedIndex = 0;
 
    final List<Widget> _widgetOptions = <Widget>[
-    const MyHomePage(title: 'home',),
+    const MyHomePage(),
     Text(
       'Likes',
       style: Constants().optionStyle,
@@ -23,10 +24,7 @@ class _BottomNavPageState extends State<BottomNavPage> {
       'Search',
       style: Constants().optionStyle,
     ),
-    Text(
-      'Profile',
-      style: Constants().optionStyle,
-    ),
+     const ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -51,8 +49,8 @@ class _BottomNavPageState extends State<BottomNavPage> {
               gap: 8,
               activeColor: Colors.black,
               iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-              duration: Duration(milliseconds: 400),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
               tabBackgroundColor: Colors.grey[100]!,
               color: Colors.black,
               tabs: const[
