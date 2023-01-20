@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:carousel_indicator/carousel_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:uiorus/const-class/const-value.dart';
+import 'package:uiorus/const-class/list_value.dart';
+import 'package:uiorus/custom-page/custom_ecommerce_product_card.dart';
 import 'package:uiorus/custom-page/slider_page.dart';
 // import 'package:uiorus/custom-widget/auto-slider-widget/auto_slider_widget.dart';
 import 'package:uiorus/custom-widget/row-list-widget/row_list_widget.dart';
@@ -56,10 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
   int pageIndex=0;
 
   final List<Widget> carList=[
-    SizedBox(height: 300,child: Image.asset('images/car1.webp', fit: BoxFit.fill ),),
-    SizedBox(height: 300,child: Image.asset('images/car2.jpg'),),
-    SizedBox(height: 300,child: Image.asset('images/car3.jpg'),),
-    SizedBox(height: 300,child: Image.asset('images/car4.jpg'),),
+    SizedBox(height: 300,child: Image.network('https://icms-image.slatic.net/images/ims-web/ec488acf-fdab-4aec-b15b-3c610a40fb8f.jpg', fit: BoxFit.fill ),),
+    SizedBox(height: 300,child: Image.network('https://icms-image.slatic.net/images/ims-web/7bb1b2ee-24a2-409e-8b2c-2d2beee3b198.jpg', fit: BoxFit.cover),),
+    SizedBox(height: 300,child: Image.network('https://icms-image.slatic.net/images/ims-web/b8ac18e6-e56d-4e13-b21b-360727a926ae.jpg', fit: BoxFit.cover),),
+    SizedBox(height: 300,child: Image.network('https://icms-image.slatic.net/images/ims-web/976b7df1-769d-44b6-a883-26a6f9193cf8.jpg', fit: BoxFit.cover),),
+    SizedBox(height: 300,child: Image.network('https://icms-image.slatic.net/images/ims-web/e640ed3c-bd6b-4890-b82c-f5568a4e84cf.jpg', fit: BoxFit.cover),),
+    SizedBox(height: 300,child: Image.network('https://icms-image.slatic.net/images/ims-web/fa718461-3efc-401c-b8fa-fdb71975b7e4.jpg', fit: BoxFit.cover),),
 ];
 
   late Timer _timer;
@@ -95,9 +99,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 // print(savedInventory);
-    return SafeArea(
+    return Scaffold(
+      backgroundColor: Constants().color1.withOpacity(0.001),
       // This trailing comma makes auto-formatting nicer for build methods.
-      child: SingleChildScrollView(
+      body:SafeArea ( child:SingleChildScrollView(
         child: Column(
           children: [
             search_widget(size, context),
@@ -105,6 +110,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Sliderpage(carList: carList, pageController:_pageController ,),
 
 
+            const SizedBox(height: 40,),
+            ProductCard(
+              title:  'FlashSale',
+              productList: ListValue().flashSale,
+            ),
             const SizedBox(height: 40,),
             listOfCard(
                 'Saved Inventory', Constants().color1, Constants().iconColors),
@@ -120,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
             rowListWidget(savedInventory, Constants().color1,'Favourite Car', Constants().iconColors),
           ],
         ),
-      ),
+      )),
     );
   }
 

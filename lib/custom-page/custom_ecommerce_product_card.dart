@@ -15,10 +15,13 @@ class ProductCard extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(18.0),
-            child: Text(
-              title,
-              style: const TextStyle(
-                  fontSize: 21, fontWeight: FontWeight.w600),
+            child: Expanded(
+              child: Text(
+                title,
+                // title.take(8).toString(),
+                style: const TextStyle(
+                    fontSize: 21, fontWeight: FontWeight.w600),
+              ),
             ),
           ),
           Container(
@@ -45,7 +48,8 @@ class ProductCard extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      productList[index]['name'].toString(),
+                                      productList[index]['name'].length > 12 ? productList[index]['name'].substring(0, 20)+'...' :productList[index]['name'].toString()
+                                      ,
                                       style: TextStyle(
                                           color: Constants().primaryValueColor,
                                           fontSize: 20,
